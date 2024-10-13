@@ -5,7 +5,7 @@
 
 ---
 
-### Week - 7.1
+### [Week - 7.1](https://github.com/JayShende/jay-cohort-3.0/tree/master/Week%207)
 
 * Introduction to the MongoDB
 * Sql Vs No Sql
