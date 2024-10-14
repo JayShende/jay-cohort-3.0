@@ -7,7 +7,7 @@ const {auth}=require("./auth");
 
 const jwt=require("jsonwebtoken");
 const JWT_SECRET="JayShende007@";
-
+const bcrypt=require("bcrypt");
 
 const mongoose = require("mongoose");
 mongoose.connect("mongodb+srv://Jayshende:S12Ce8MKll5AtCPl@cluster0.i3qcn.mongodb.net/todo-app-database")
@@ -30,11 +30,11 @@ app.post("/signup",async function(req,res){
     const email=req.body.email;
     const password=req.body.password;
     const name=req.body.name;
-
+    const hashedpwd=await bcrypt.hash(password,5);
     await UserModel.create({
         name:name,
         email:email,
-        password:password
+        password:hashedpwd
     });
 
     res.json({
@@ -52,10 +52,12 @@ app.post("/signin",async function(req,res){
 
     const response=await UserModel.findOne({
         email:email,
-        password:password
     });
     console.log(response);
-    if(response)
+
+    const ans=await bcrypt.compare(password,response.password);
+
+    if(ans)
     {
         const token=jwt.sign({
             id:response._id.toString() // its an object so we have to convert it to string to continue

@@ -1,7 +1,8 @@
 # Hello 👋 Everyone
 
-> ### This Repo Conations all the Practice / Project Files I Coded During My Journey in Chohort 3.0
-
+> ### This Repo Conations all the Practice / Project Files I Coded During My Journey in Cohort 3.0
+>
+> ![1728882685799](image/readme/1728882685799.png)
 
 ---
 
