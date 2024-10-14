@@ -12,6 +12,9 @@
   * API Endpoints Created are Signin, SignUp, Todos- Post Endpoints
   * todos - an Get Endpoint that Retrives all the ToDos as per the Request
 * Testing the Application Using PostMan
+
+#### Day 2 - Sunday
+
 * Password Hashing and Salting Using the bcrypt Library
 * Introduction to ZOD
 * input Valitation Using ZOD
