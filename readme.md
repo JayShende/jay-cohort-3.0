@@ -13,4 +13,6 @@ Tech Stack Learned/ Used
 * MongoDB
 * No SQL
 * Mongoose Lib.
-*
+* Bcrybt Library
+* Input Validation Using ZOD
+* Express JS
