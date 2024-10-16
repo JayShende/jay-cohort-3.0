@@ -1,20 +1,24 @@
 const express = require("express");
-// const UserModel=require("./db");
-// const TodosModel=require("./db");
-
 const { z } = require("zod");
 const { auth } = require("./auth");
+const { UserModel, TodosModel } = require("./db");
 
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "JayShende007@";
 const bcrypt = require("bcrypt");
 
+// Connecting The DataBase
 const mongoose = require("mongoose");
-mongoose.connect(
-  "mongodb+srv://Jayshende:S12Ce8MKll5AtCPl@cluster0.i3qcn.mongodb.net/todo-app-database"
-);
-//  or we can also do at once as
-const { UserModel, TodosModel } = require("./db");
+
+async function connectDB() {
+  try {
+    await mongoose.connect("mongodb+srv://Jayshende:S12Ce8MKll5AtCPl@cluster0.i3qcn.mongodb.net/todo-app-database");
+  } catch (err) {
+    console.log("unable to Connect to the DB");
+  }
+}
+
+connectDB();
 
 const app = express();
 app.use(express.json());
@@ -26,8 +30,6 @@ app.post("/signup", async function (req, res) {
   const email = req.body.email;
   const password = req.body.password;
   const name = req.body.name;
-
-  // Input Validation Using Zod
 
   const schema = z.object({
     name: z.string().max(100),
@@ -60,22 +62,33 @@ app.post("/signup", async function (req, res) {
           message: "Password must contain at least one special character",
         }
       )
-      .refine(function(password){
-        return /[0-9]/.test(password);
-      },{
-        message:"The Password must contain at least one number "
-      })
+      .refine(
+        function (password) {
+          return /[0-9]/.test(password);
+        },
+        {
+          message: "The Password must contain at least one number ",
+        }
+      ),
   });
 
   const result = schema.safeParse(req.body);
 
   if (result.success) {
     const hashedpwd = await bcrypt.hash(password, 5);
-    await UserModel.create({
-      name: name,
-      email: email,
-      password: hashedpwd,
-    });
+
+    try {
+      await UserModel.create({
+        name: name,
+        email: email,
+        password: hashedpwd,
+      });
+    } catch (err) {
+      res.send({
+        message: "User Already Exist",
+      });
+      return;
+    }
 
     res.json({
       message: "You Are Now Signed in",
@@ -94,7 +107,13 @@ app.post("/signin", async function (req, res) {
     email: email,
   });
   console.log(response);
-
+  if(response==null)
+  {
+    res.json({
+      message:"Signup Please"
+    });
+    return;
+  }
   const ans = await bcrypt.compare(password, response.password);
 
   if (ans) {
