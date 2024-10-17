@@ -4,9 +4,9 @@ const userRouter=Router();
 const {z}=require("zod");
 const bcrypt=require("bcrypt");
 const jwt = require("jsonwebtoken");
+const {JWT_SECRET_USER}=require("../config");
 
 
-const JWT_SECRET_USER="Jayshende007@123";
 
 userRouter.post("/signup",async function(req,res){
    const {email,password,firstname,lastname}=req.body;
@@ -103,7 +103,7 @@ userRouter.post("/signin",async function(req,res){
         {
             const token=jwt.sign({
                 id:response._id.toString()
-            },JWT_SECRET_USER);
+            },process.env.JWT_SECRET_USER);
 
             res.send({
                 token:token

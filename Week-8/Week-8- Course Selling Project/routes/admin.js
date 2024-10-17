@@ -1,10 +1,11 @@
 const express=require("express");
 const {Router}=require("express");
-const {adminModel}=require("../db");
+const {adminModel, courseModel}=require("../db");
 const {z}=require("zod");
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
-const JWT_SECRET_ADMIN="Jayshende007@123";
+// const {JWT_SECRET_ADMIN}=require("../config");
+const { adminAuth } = require("../middleware/adminMiddleware");
 
 const adminRouter=Router();
 
@@ -104,7 +105,7 @@ adminRouter.post("/signin",async function(req,res){
         {
             const token=jwt.sign({
                 id:response._id.toString()
-            },JWT_SECRET_ADMIN);
+            },process.env.JWT_SECRET_ADMIN);
 
             res.send({
                 token:token
@@ -121,12 +122,42 @@ adminRouter.post("/signin",async function(req,res){
     }
 });
 
-adminRouter.post("/course",function(req,res){ //add course
+adminRouter.post("/course",adminAuth,async function(req,res){ //add course
+    const adminId=req.adminId;
+    const {title,description,price,imageUrl}=req.body;
+    
+    const course=await courseModel.create({
+        title:title,
+        decription:description,
+        price:price,
+        imagUrl:imageUrl,
+        creatorId:adminId
+    });
+
+    res.send({
+        message:"Course Created Successfully",
+        courseID:course._id
+    });
+
 
 });
 
-adminRouter.put("/course",function(req,res){ //update course
+adminRouter.put("/course",adminAuth, async function(req,res){ //update course
+    const adminId=req.adminId;
+    const {title,description,price,imageUrl}=req.body;
+    
+    const course=await courseModel.create({
+        title:title,
+        decription:description,
+        price:price,
+        imagUrl:imageUrl,
+        creatorId:adminId
+    });
 
+    res.send({
+        message:"Course Updated Successfully",
+        courseID:course._id
+    });
 });
 
 adminRouter.get("/course/bulk",function(req,res){

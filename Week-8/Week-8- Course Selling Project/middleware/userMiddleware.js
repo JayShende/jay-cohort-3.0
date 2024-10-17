@@ -1,13 +1,13 @@
 const jwt=require("jsonwebtoken");
-const JWT_SECRET_USER="Jayshende007@123";
+// const {JWT_SECRET_USER}=require("../config");
 
-function auth(req,res,next)
+function userAuth(req,res,next)
 {
     const authHeader=req.body.authorization;
     const token =authHeader.token;
 
     try{
-        const decoded=jwt.verify(token,JWT_SECRET_USER);
+        const decoded=jwt.verify(token,process.env.JWT_SECRET_USER);
     }
     catch(err)
     {
@@ -20,3 +20,7 @@ function auth(req,res,next)
     req.userId=decoded._id;
     next();
 }
+
+module.exports={
+    userAuth:userAuth
+};

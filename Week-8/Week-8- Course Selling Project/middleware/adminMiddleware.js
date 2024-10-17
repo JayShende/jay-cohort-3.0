@@ -1,13 +1,13 @@
 const jwt=require("jsonwebtoken");
-const JWT_SECRET_ADMIN="Jayshende007@123";
+// const {JWT_SECRET_ADMIN}=require("../config");
 
-function auth(req,res,next)
+function adminAuth(req,res,next)
 {
     const authHeader=req.body.authorization;
     const token =authHeader.token;
 
     try{
-        const decoded=jwt.verify(token,JWT_SECRET_ADMIN);
+        const decoded=jwt.verify(token,process.env.JWT_SECRET_ADMIN);
     }
     catch(err)
     {
@@ -17,6 +17,10 @@ function auth(req,res,next)
         return;
     }
 
-    req.userId=decoded._id;
+    req.adminId=decoded._id;
     next();
 }
+
+module.exports={
+    adminAuth:adminAuth
+};

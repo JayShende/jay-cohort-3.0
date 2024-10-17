@@ -1,5 +1,5 @@
 const express=require("express");
-
+require('dotenv').config();
 // Importing The Routers
 const {userRouter}=require("./routes/user");
 const {courseRouter}=require("./routes/course");
@@ -15,7 +15,7 @@ app.use(express.json());
 async function main()
 {
     try{
-        await mongoose.connect("mongodb+srv://Jayshende:S12Ce8MKll5AtCPl@cluster0.i3qcn.mongodb.net/course-selling-app");
+        await mongoose.connect(process.env.MONGO_URL);
         console.log("Connected to Databse");
         app.listen(3000);
     }
@@ -26,7 +26,7 @@ async function main()
 
 }
 main();
-
+// console.log(process.env.JWT_SECRET_USER);
 // specifing the Router 
 app.use("/user",userRouter);
 app.use("/course",courseRouter); // when req at /course/--  go to the courseRouter

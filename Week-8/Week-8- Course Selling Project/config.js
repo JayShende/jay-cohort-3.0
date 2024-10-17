@@ -1,0 +1,8 @@
+const JWT_SECRET_USER="Jayshende007@123";
+const JWT_SECRET_ADMIN="Jayshende007@123";
+
+
+module.exports={
+    JWT_SECRET_ADMIN:JWT_SECRET_ADMIN,
+    JWT_SECRET_USER:JWT_SECRET_USER
+};
