@@ -1,16 +1,28 @@
 const {Router}=require("express");
-
+const { purchaseModel, courseModel } = require("../db");
+const {userAuth}=require("../middleware/userMiddleware");
 const courseRouter=Router();
 
-courseRouter.post("/purchase",function(req,res){
+courseRouter.post("/purchase",userAuth,async function(req,res){
+    const courseID=req.body.courseID;
+
+    await purchaseModel.create({
+        userId:req.body.userId,
+        courseId:courseID
+    });
+
+    res.send({
+        message: "You have successfully bought the course"
+    });
 
 });
 
 
-courseRouter.get("/preview",function(req,res){
+courseRouter.get("/preview",async function(req,res){
+    const courses=await courseModel.find({});
     res.send({
-        "msg":"inside the course/preview route"
-    })
+       courses:courses
+    });
 });
 
 

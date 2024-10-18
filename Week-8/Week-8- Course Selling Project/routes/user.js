@@ -5,7 +5,7 @@ const {z}=require("zod");
 const bcrypt=require("bcrypt");
 const jwt = require("jsonwebtoken");
 const {JWT_SECRET_USER}=require("../config");
-
+const {userAuth}=require("../middleware/userMiddleware");
 
 
 userRouter.post("/signup",async function(req,res){
@@ -125,7 +125,9 @@ userRouter.post("/signin",async function(req,res){
     
 });
 
-userRouter.post("/purchase",function(req,res){
+userRouter.post("/purchase",userAuth,async function(req,res){
+    // preview courses
+    
 
 });
 

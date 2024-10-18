@@ -17,7 +17,7 @@ function userAuth(req,res,next)
         return;
     }
 
-    req.userId=decoded._id;
+    req.userId=decoded.id;
     next();
 }
 

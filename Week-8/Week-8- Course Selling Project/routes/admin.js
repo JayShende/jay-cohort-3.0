@@ -148,7 +148,9 @@ adminRouter.put("/course",adminAuth, async function(req,res){ //update course
     
     const course=await courseModel.updateOne(
         {
-            _id:courseID
+            _id:courseID,
+            creatorId:adminId
+            // we check weather the course he is changing belong to that admin only else other craetor ccasn changes one creator course
         },
         {
         title:title,
@@ -157,14 +159,25 @@ adminRouter.put("/course",adminAuth, async function(req,res){ //update course
         imagUrl:imageUrl,
     });
 
+    if(course.matchedCount==0)
+    {
+        res.send({
+            message:"Inavlid Update Request"
+        });
+        return;
+    }
     res.send({
         message:"Course Updated Successfully",
-        courseID:course._id
+        courseID:courseID
     });
 });
 
-adminRouter.get("/course/bulk",function(req,res){
-
+adminRouter.get("/course/bulk",adminAuth,async function(req,res){
+    const courses=await courseModel.find({
+        creatorId:req.adminId
+    });
+    console.log(courses);
+    res.send(courses);
 });
 
 adminRouter.delete("/delete",function(req,res){
