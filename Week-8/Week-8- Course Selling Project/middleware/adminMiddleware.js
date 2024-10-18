@@ -3,11 +3,14 @@ const jwt=require("jsonwebtoken");
 
 function adminAuth(req,res,next)
 {
-    const authHeader=req.body.authorization;
-    const token =authHeader.token;
+    const token=req.headers.authorization;
+    // const token =authHeader.token;
+    console.log(token);
 
     try{
         const decoded=jwt.verify(token,process.env.JWT_SECRET_ADMIN);
+        console.log(decoded);
+        req.adminId=decoded.id; // Decoded is only accessiable in this scope only
     }
     catch(err)
     {
@@ -16,8 +19,7 @@ function adminAuth(req,res,next)
         })
         return;
     }
-
-    req.adminId=decoded._id;
+    
     next();
 }
 

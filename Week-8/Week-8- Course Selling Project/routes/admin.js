@@ -18,7 +18,7 @@ adminRouter.post("/signup",async function(req,res){
 
     const schema=z.object({
         email:z.string().email(),
-        firstname:z.string().min(5).max(100),
+        firstname:z.string().min(1).max(100),
         lastname:z.string().min(5).max(100),
         password:z.string().min(5).max(100)
         .refine(
@@ -125,7 +125,7 @@ adminRouter.post("/signin",async function(req,res){
 adminRouter.post("/course",adminAuth,async function(req,res){ //add course
     const adminId=req.adminId;
     const {title,description,price,imageUrl}=req.body;
-    
+    console.log("hi");
     const course=await courseModel.create({
         title:title,
         decription:description,
@@ -144,14 +144,17 @@ adminRouter.post("/course",adminAuth,async function(req,res){ //add course
 
 adminRouter.put("/course",adminAuth, async function(req,res){ //update course
     const adminId=req.adminId;
-    const {title,description,price,imageUrl}=req.body;
+    const {title,description,price,imageUrl,courseID}=req.body;
     
-    const course=await courseModel.create({
+    const course=await courseModel.updateOne(
+        {
+            _id:courseID
+        },
+        {
         title:title,
         decription:description,
         price:price,
         imagUrl:imageUrl,
-        creatorId:adminId
     });
 
     res.send({
