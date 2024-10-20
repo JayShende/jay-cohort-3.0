@@ -8,6 +8,7 @@ function adminAuth(req,res,next)
     console.log(token);
 
     try{
+        console.log(process.env.JWT_SECRET_ADMIN);
         const decoded=jwt.verify(token,process.env.JWT_SECRET_ADMIN);
         console.log(decoded);
         req.adminId=decoded.id; // Decoded is only accessiable in this scope only
