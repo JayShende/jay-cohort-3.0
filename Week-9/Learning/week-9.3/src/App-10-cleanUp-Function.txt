@@ -1,0 +1,44 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
+function App()
+{
+  const [load,setLoad]=useState(true);
+  useEffect(()=>{
+    setInterval(()=>{
+      setLoad(previousValue=>!previousValue);
+    },5000)
+  },[])
+  return(
+    <div>
+      Hello World;
+    {load && <Compo/>}
+    </div>
+  )
+}
+
+function Compo()
+{
+  const [count,setCount]=useState(0);
+
+  useEffect(()=>{
+   const clock= setInterval(function(){
+      console.log("Inside the setCount Function");
+      setCount(previousValue=>previousValue+1);
+    },1000)
+
+    return()=>{
+      clearInterval(clock);
+    }
+  }
+  ,[])
+
+
+  return(
+    <div>
+     {count}
+    </div>
+  )
+}
+
+export default App;

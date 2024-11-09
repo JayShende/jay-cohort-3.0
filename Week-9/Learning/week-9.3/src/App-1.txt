@@ -1,0 +1,61 @@
+function App() {
+  return (
+    // <div>
+    //  <h1>Hello World </h1>
+    //  <h2>To Kaise Ho App Log</h2>
+    // </div>
+
+    <div
+      style={{ backgroundColor: "#dfe6e9", height: "100vh", paddingTop: 50 }}
+    >
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div>
+          <div>
+            <PostComponent
+              name={"100x Devs"}
+              follwers={"123456"}
+              time={"1122m"}
+            />
+          </div>
+          <br />
+          <div>
+            <PostComponent
+              name={"100x Devs"}
+              follwers={"123456"}
+              // time={}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+const style = { backgroundColor: "white", borderRadius: 20, width: "450px" };
+function PostComponent({ name, follwers, time }) {
+  return (
+    <div style={style}>
+      <div className="image" style={{ display: "flex", padding: 10 }}>
+        <img
+          src="https://appx-wsb-gcp-mcdn.akamai.net.in/subject/2023-01-17-0.17044360120951185.jpg"
+          alt=""
+          style={{
+            width: 60,
+            height: 60,
+          }}
+        />
+        <div style={{ paddingLeft: 10 }}>
+          <b>{name} </b>
+          <div>{follwers} Followers</div>
+          {time!==undefined && <div>{time} ago</div>}
+        </div>
+      </div>
+      <div style={{ padding: 10 }}>
+        <b>
+          Want To Do Big Learn How the Folks Won $6000 in Bounties @100xdevs
+        </b>
+      </div>
+    </div>
+  );
+}
+
+export default App;

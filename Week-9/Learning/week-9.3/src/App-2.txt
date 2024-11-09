@@ -1,0 +1,28 @@
+import { useState } from "react";
+
+function App() {
+    return (
+        <div>
+           <ToggleMessage/>
+           <ToggleMessage/>
+           <ToggleMessage/>
+        </div>
+    );
+  }
+
+  const ToggleMessage=function(){
+    const[isVisible,SetusVisible]=useState(true);
+
+    return(
+        <div>
+            <button onClick={function(){
+                SetusVisible(!isVisible);
+            }}>
+               <h2>Click Me</h2>
+            </button>
+            {isVisible && <h1> This is an conditionally Rendered Msg</h1>}
+        </div>
+    )
+  };
+  export default App;
+  

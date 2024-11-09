@@ -1,0 +1,16 @@
+import { useState } from "react";
+
+function App()
+{   
+    const [currentTab,setcurrentTab]=useState();
+    return(
+        <div>
+            <button onClick={()=>setcurrentTab("a")} style={{color:currentTab=="a"?"red":"black"}}>Tab1</button>
+            <button onClick={()=>setcurrentTab("b")} style={{color:currentTab=="b"?"red":"black"}}>Tab 2</button>
+            <button onClick={()=>setcurrentTab("c")} style={{color:currentTab=="c"?"red":"black"}}>Tab 3 </button>
+            <button onClick={()=>setcurrentTab("d")} style={{color:currentTab=="d"?"red":"black"}}>Tab 4 </button>
+        </div>
+    );
+}
+
+export default App;

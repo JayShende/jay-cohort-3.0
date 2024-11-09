@@ -1,0 +1,28 @@
+import { useState } from "react"
+
+function App()
+{
+    return(
+        <div>
+            <NotificationCount/>
+            <NotificationCount/>
+            <NotificationCount/>
+        </div>
+    );
+};
+
+const NotificationCount=function(){
+    const [notifycount,setnotifycount]=useState(0);
+    return(
+     <div>
+         <button onClick={function(){
+        setnotifycount(notifycount+1);
+      }}>
+        Click me
+      </button>
+      <h1>{notifycount}</h1>
+     </div>
+    )
+};
+
+export default App;

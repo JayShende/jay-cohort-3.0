@@ -1,0 +1,24 @@
+import { useState } from "react";
+
+function App()
+{
+  const [count,setcount]=useState(1);
+  function notify()
+  {
+    setcount(count+1);
+  }
+  setInterval(notify,1000);
+  return(
+    <div>
+      <div style={{display:"flex"}}>
+        <div style={{backgroundColor:"red",height:25,width:25, borderRadius:10,color:"white", fontSize:20, paddingLeft:10}}>{count}</div>
+        <img src="https://cdn-icons-png.flaticon.com/512/472/472371.png" alt="" width={50}/>
+        
+      </div>
+      <br />
+      <button onClick={notify}>notify</button>
+    </div>
+  )
+}
+
+export default App;

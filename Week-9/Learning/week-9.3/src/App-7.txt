@@ -1,0 +1,31 @@
+import { useEffect, useState } from "react";
+
+function App()
+{
+    const [count , incCount]=useState(1);
+    function fun2()
+    {
+        incCount(function(c){
+            return c+1;
+        })
+    }
+    useEffect(function(){
+        setInterval(function(){
+            fun2();
+        },1000);
+    },[])
+
+    useEffect(function(){
+        console.log("The Value of Count is "+count);
+    },[count]);
+
+    return (
+        <div>
+            <h1>
+                {count}
+            </h1>
+        </div>
+    );
+}
+
+export default App;

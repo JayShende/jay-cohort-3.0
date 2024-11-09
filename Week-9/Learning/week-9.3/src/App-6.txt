@@ -1,0 +1,24 @@
+import { useEffect } from "react";
+import { useState } from "react";
+
+function App()
+{
+  const [count, increaseCount]=useState(0);
+
+  function fun()
+  {
+    increaseCount(prevCount => prevCount + 1)
+  }
+ useEffect(function(){
+  console.log("inside");
+  setInterval(fun,1000);
+ },[]);
+
+  return(
+    <div>
+      <h1>{count}</h1>
+    </div>
+  )
+}
+
+export default App;
