@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    background-color: #FFF8F0;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    background-color: #FFF8F0;
+}
+
+.hero{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.hero-lhs{
+    width: 50%;
+    height: 100%;
+    /* background-color: lightblue; */
+
+}
+
+.top {
+padding-left: 5vw;
+padding-top: 4vh;
+display: flex;
+
+}
+
+.top p{
+    font-family: "Roboto", serif;
+    font-weight: 400;
+    margin-left: 12px;
+}
+
+.ri-mail-line{
+    padding-left: 10vw;
+}
+
+.content{
+    padding-left: 5vw;
+padding-top: 8vh;
+}
+
+#tag-1{
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+}
+
+
+.cont-m{
+    font-family: "League Spartan", sans-serif;
+    font-weight: 400;
+    font-size: 3vw;
+    padding-top: 5vh;
+}
+
+.cont-m span{
+    font-weight: bold;
+}
+
+.cont-m-2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    padding-top: 2vh;
+    margin-right: 10vw;
+    text-align: justify;
+    font-size: 1vw;
+}
+
+.content button{
+    width: 9vw;
+    height: 6vh;
+    margin-top: 1.5vw;
+    background-color: #2F2F2F;
+    color: white;
+    font-size: 1.3vw;
+    border: none;
+    border-radius: 8px;
+}
+
+.hero-rhs{
+    width: 50%;
+    height: 100%;
+    /* background-color: lightblue; */
+}
+
+.hero-img{
+    width: 100%;
+}
+
+
+.what-i-do{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    
+}
+.top-2{
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   z-index: 2;
+   position: relative ;
+   margin-top: 5vh;
+
+}
+
+#para-1{
+    font-family: "Roboto";
+    font-weight: 500;
+    color: #2858FF;
+    
+}
+.top-2 h2{
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    font-size: 3vw;
+    margin-top: 2vh;
+    /* position: absolute; */
+   
+}
+
+#desc{
+    text-align: center;
+    width: 600px;
+    margin-top: 2vh;
+    font-family: "Poppins";
+    font-size: 1.2vw;
+}
+
+.bg {
+    z-index: 1;
+    width: 100%;
+    /* height:100%; */
+    position: absolute;
+    z-index: 1;
+}
+
+.bg img{
+    width: 90vw;
+    /* padding-left: 12vw; */
+}
+
+.cards{
+    /* width: 100%; */
+    /* background-color: lightblue; */
+    margin-top: 5vh;
+    z-index: 3;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    position: relative;
+}
+
+.card-1 ,.card-2 ,.card-3{
+    width: 250px;
+    height: 250px;
+    background: white;
+    border-radius: 20px;
+}
+
+.cards h2{
+    font-family: "poppins";
+    font-weight: 500;
+    font-size: 1.3vw;
+    text-align: center;
+    padding-top: 1.5vh;
+    text-transform:uppercase;
+}
+
+.cards p{
+    font-family: "inter";
+    font-size: 1.2vw;
+    font-weight: 300;
+    text-align: center;
+    padding: 1vw;
+    color: #55206D;
+}
+
+.projects{
+    width: 100%;
+    height: 150%;
+}
+
+.top-projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 30%; */
+}
+
+
+
+.top-projects h2{
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    font-size: 3vw;
+    margin-top: 2vh;
+}
+
+#top-projects-desc{
+    text-align: center;
+    width: 680px;
+    margin-top: 2vh;
+    font-family: "Poppins";
+    font-size: 1.3vw;
+}
+
+.cards-projects{
+    width: 100%;
+    height: 120%;
+    margin-top: 48px;
+}
+.project-1{
+    margin-bottom: 40px;
+}
+.project-2{
+    margin-bottom: 40px;
+}
+.project-3{
+    margin-bottom: 40px;
+}
+.box-1{
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+    margin-left: 190px;
+    background-color: #19ACFF;
+}
+
+.box-2{
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+    margin-left: 190px;
+    background-color: #FFE819;
+}
+
+.box-3{
+    width: 160px;
+    height: 160px;
+    border-radius: 10px;
+    margin-left: 190px;
+    background-color: #FF1919;
+}
