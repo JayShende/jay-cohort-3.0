@@ -1,7 +1,16 @@
 "use strict";
-function delayedcall(fn) {
-    setTimeout(fn, 1000);
+function role(a) {
+    console.log("Welcome " + a.name);
 }
-delayedcall(function () {
-    console.log("Run after 1 Second ");
-});
+const u1 = {
+    "name": "Jay",
+    "lastname": "Shende",
+    "phoneNum": 7894456123
+};
+const a1 = {
+    "name": "Jay-1",
+    "lastname": "Shende-1",
+    "dept": "Tech"
+};
+role(a1);
+role(u1);
