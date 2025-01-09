@@ -77,14 +77,14 @@ export const ChatPage = () => {
     }
   }, [messages]);
   return (
-    <div className="w-[680px] h-[450px] bg-[#ddd4b4] rounded-xl mt-12 flex flex-col justify-between">
+    <div className="sm:w-[680px] sm:h-[450px] h-[620px] w-screen bg-[#ddd4b4] sm:rounded-xl rounded-none sm:mt-12 mt-0 flex flex-col justify-between">
        <div className="w-full h-12 flex  bg-[#008172] rounded-t-lg z-10 p-3">
        <span className=" text-2xl font-bold font-[poppins] text-[#1b2c29]">100x Chat</span>
        </div>
       <div className=" overflow-y-auto no-scrollbar h-full w-full ">
         {messages.map((message) =>
           message.senderId === userId ? (
-            <div className="bg-[#008172] text-white rounded-2xl rounded-tr-none p-4 break-words max-w-[280px] ml-96 my-5">
+            <div className="bg-[#008172] text-white rounded-2xl rounded-tr-none p-4 break-words sm:max-w-[280px]  sm:ml-96 m-64 my-5 sm:mr-0 mr-3">
               {message.content}
             </div>
           ) : (
