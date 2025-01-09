@@ -26,10 +26,10 @@ export const HomePage = () => {
     }
 
   return (
-    <div className="w-full h-full bg-[#1b2c29] flex justify-center items-center">
-      <div className="w-[650px] h-80 bg-[#ddd4b4] rounded-xl">
+    <div className="w-full h-full bg-[#1b2c29] flex justify-center sm:items-center sm:mt-0 mt-20 ">
+      <div className="sm:w-[650px] sm:h-80 w-full h-80 bg-[#ddd4b4] rounded-xl">
         <div className="w-full flex justify-center border-b-2 p-2 border-[#1b2c29]">
-          <p className="mt-3 text-2xl font-bold font-[poppins] text-[#1b2c29] ">
+          <p className="mt-3 text-2xl font-bold font-[Poppins] text-[#1b2c29] ">
             100x Chat App
           </p>
         </div>
