@@ -78,9 +78,11 @@ export const ChatPage = () => {
   }, [messages]);
   return (
     <div className="sm:w-[680px] sm:h-[450px] h-[620px] w-screen bg-[#ddd4b4] sm:rounded-xl rounded-none sm:mt-12 mt-0 flex flex-col justify-between">
-       <div className="w-full h-12 flex  bg-[#008172] rounded-t-lg z-10 p-3">
-       <span className=" text-2xl font-bold font-[poppins] text-[#1b2c29]">100x Chat</span>
-       </div>
+      <div className="w-full h-12 flex  bg-[#008172] rounded-t-lg z-10 p-3">
+        <span className=" text-2xl font-bold font-[poppins] text-[#1b2c29]">
+          100x Chat
+        </span>
+      </div>
       <div className=" overflow-y-auto no-scrollbar h-full w-full ">
         {messages.map((message) =>
           message.senderId === userId ? (
@@ -96,9 +98,13 @@ export const ChatPage = () => {
         <div ref={messagesEndRef}></div>
       </div>
       <div className="w-full h-12 flex justify-end">
-       <textarea name="" id=""  ref={inputRef}
+        <textarea
+          name=""
+          id=""
+          ref={inputRef}
           className="bg-[#008172] rounded-bl-lg  text-white p-3 font-[poppins] w-full max-h-full"
-          placeholder="Enter Your Message"></textarea>
+          placeholder="Enter Your Message"
+        ></textarea>
         <SendIcon onclick={fun} />
       </div>
     </div>
