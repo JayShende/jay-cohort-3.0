@@ -7,12 +7,12 @@ async function getUserDetails()
     url:"https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details"
   });
 
-  await new Promise(r=>setTimeout(r,5000));
+ 
   return response.data;
 }
 
 export default async function Home() {
-  
+  await new Promise(r=>setTimeout(r,10000));
   const data=await getUserDetails();
   
   return(

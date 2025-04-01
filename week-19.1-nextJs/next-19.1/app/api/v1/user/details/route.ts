@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export function GET()
 {   
@@ -8,13 +8,13 @@ export function GET()
     });
     
 }
-
-
-export function POST()
+export async  function POST(req:NextRequest)
 {
+    const data=await req.json()
     return NextResponse.json({
         name:"Jay Shende",
-        email:"jayshende1709@gmail.com"
+        email:"jayshende1709@gmail.com",
+        input:data.input
     });
 }
 
